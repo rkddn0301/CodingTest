@@ -1,0 +1,30 @@
+// java
+
+import java.util.Arrays; // Arrays.sort 정렬 함수를 사용하기 위해 import 해준다.
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+    int i = 0; // 전부 걸러낸 후 마지막으로 남은 수를 리턴해주기 위해 전역변수로 지정
+	String[] part = participant;
+	String[] comp = completion;
+        
+	Arrays.sort(part); // 정렬 예 {leo, kiki, eden} -> {eden, kiki, leo}
+	Arrays.sort(comp);
+	
+	for (i=0; i<=comp.length-1; i++){ 
+			if (!part[i].equals(comp[i])) { // comp 내용에 이름이 없으면 완주하지 못한 선수이기 때문에 정렬된 part중에 완주하지 못한 선수가 존재 할 경우 리턴
+	           return part[i];
+	        }
+				
+		
+        
+    
+    }
+	return part[i]; // for문은 마지막에 숫자를 +1해주는데 남은 완주하지 못한자가 있으면 여기서 리턴해준다.
+        
+    }
+}
+
+/*
+* 정렬을 통해 뛴 자와 완주하지 못한자가 서로 동일 선상에 배치되며, 같으면 표시안해주고 같지 않을 경우 리턴하여 뽑아내는 코드이다.
+*/
