@@ -1,0 +1,56 @@
+// java
+
+import java.util.Arrays;
+
+public class MathCoding {
+	
+	public int[] solution(int n, int m) {
+		int[] answer = new int[2];
+		int higher, lower = 0;
+		
+		if (n > m) {
+			higher = n;
+			lower = m;
+		}else {
+			higher = m;
+			lower = n;
+		}
+		
+		answer[0] = gcd(higher, lower);
+		answer[1] = lcm(higher, lower);
+
+		return answer;
+	
+	}
+	
+	// 최대공약수 구하기
+	public static int gcd(int n, int m) {
+		int L = 0;
+	
+		while(m != 0) {
+			L = n % m;
+			n = m;
+			m = L;
+		}
+		
+		return n;
+	}
+	
+	// 최소공배수 구하기
+	public static int lcm(int n, int m) {
+		return n * m / gcd(n, m);
+	}
+
+  // 메인 예시
+	public static void main(String[] args) {
+		int n = 2;
+		int m = 5;
+		
+		
+		MathCoding s = new MathCoding();
+		
+		System.out.println(Arrays.toString(s.solution(n, m)));
+
+	}
+
+}
