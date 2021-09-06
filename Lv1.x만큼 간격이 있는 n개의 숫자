@@ -1,0 +1,40 @@
+// java
+
+import java.util.Arrays;
+
+public class MathsCoding {
+	
+	
+	 public long[] solution(long x, int n) {
+	        long[] answer = new long[n]; // n만큼 반복이기 때문에 n 개수대로 배열을 만듦
+	        long xs = x; // x 대신 역할
+	        
+	        for (int i=0; i<=n-1; i++) { // n-1만큼 반복
+	        	answer[i] = x;
+	        	x += xs; // x를 계속 증가
+	        }
+	        
+	        return answer;
+	    }
+
+
+	public static void main(String[] args) {
+		
+		int x = 50;
+		int n = 50;
+		
+		MathsCoding s = new MathsCoding();
+		
+		System.out.println(Arrays.toString(s.solution(x,n)));
+
+	}
+
+	
+
+}
+
+/**
+* n개수 만큼 출력하는 코드이기 때문에 배열을 n개수대로 생성하여 x를 계속 증가시킨 후 삽입 시킨 코드이다.
+*/
+
+
