@@ -1,0 +1,40 @@
+// java
+
+import java.util.Arrays;
+
+public class ArraysIntCoding {
+	
+	
+	public int[] solution(long n) {
+        String strs = "";
+        strs = String.valueOf(n); // long형인 n을 문자열로 변환
+        
+        char[] temp = strs.toCharArray(); // 문자형 배열에 차례대로 넣음
+        
+        int[] answer = new int[temp.length]; // 문자형 배열의 길이와 같이 지정
+        
+       for (int i=0; i<=temp.length-1; i++){
+    	   answer[i] += Integer.parseInt(temp[temp.length-1-i]+""); // 반대로 넣기 위해 지정함
+
+        }
+        
+        return answer;
+    }
+
+	public static void main(String[] args) {
+		
+		long n = 12345;
+		
+		ArraysIntCoding s = new ArraysIntCoding();
+		System.out.println(Arrays.toString(s.solution(n)));
+
+	}
+	
+	/**
+	 * 문자형.toCharArray() : 해당 문자열을 한 글자씩 쪼개서 이를 char 타입의 배열에 집어넣어주는 메소드이다.
+	 * Integer.parseInt : 문자형을 정수형으로 변환해주는 메소드
+	 * parseInt안에 '+""'를 넣은 이유는 형변환 할 때 초기화 방식인 'String var = "";' 이런 방식이 없을 때 주로 넣는걸로 추정된다.
+	 * 위에 'String strs = "";'도 초기화 없이 'String strs = new String(n);'만 넣으면 오류나고 n 뒤에 '+""'를 넣으면 오류가 사라진다.
+	 * 물론 추정이기 때문에 확실치는 않으나 그렇게 알아 둘 필요가 있다.
+	 *  
+	 */
